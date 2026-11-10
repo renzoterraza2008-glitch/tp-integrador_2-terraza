@@ -12,9 +12,9 @@ def main():
     if accion == "resumen":
         for tipo, datos in resumir_catalogo(satelites).items():
             if datos["cantidad"] > 0:
-                print(f"{tipo} -> Cantidad: {datos['cantidad']} | Mín: {datos['min']:.1f} km | Máx: {datos['max']:.1f} km | Promedio: {datos['promedio']:.1f} km")
+                print(f"{tipo}  Cantidad: {datos['cantidad']} | Mín: {datos['min']:.1f} km | Máx: {datos['max']:.1f} km | Promedio: {datos['promedio']:.1f} km")
             else:
-                print(f"{tipo} -> Cantidad: 0")
+                print(f"{tipo}  Cantidad: 0")
 
     elif accion == "zona" and len(sys.argv) == 7:
         lon_min, lat_min, lon_max, lat_max = map(float, sys.argv[3:7])
