@@ -11,8 +11,8 @@ def crear_catalogo(registros: list) -> list:
     for reg in registros:
         try:
             lat, lon, alt = obtener_posicion(reg)
-            nombre = reg.get("OBJECT_NAME", reg.get("nombre", "Desconocido"))
-            catalogo = int(reg.get("NORAD_CAT_ID", reg.get("numero_catalogo", 0)))
+            nombre = reg["OBJECT_NAME"]
+            catalogo = int(reg["NORAD_CAT_ID"])
             
             sat = Satelite(
                 nombre=nombre,
@@ -42,12 +42,7 @@ def resumir_catalogo(satelites: list) -> dict:
                 "promedio": sum(altitudes) / cantidad
             }
         else:
-            resumen[tipo] = {
-                "cantidad": 0,
-                "min": 0.0,
-                "max": 0.0,
-                "promedio": 0.0
-            }
+            resumen[tipo] = {"cantidad": 0, "min": 0.0, "max": 0.0, "promedio": 0.0}
     return resumen
 
 def obtener_satelites_en_zona(satelites: list, lon_min: float, lat_min: float, lon_max: float, lat_max: float) -> list:
