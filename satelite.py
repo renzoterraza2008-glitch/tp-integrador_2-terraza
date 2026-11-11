@@ -26,11 +26,12 @@ class Satelite:
         else:
             return "HEO"
 
+        
     def en_zona(self, lon_min, lat_min, lon_max, lat_max):
         condicion_lon = lon_min <= self.longitud <= lon_max
         condicion_lat = lat_min <= self.latitud <= lat_max
         return condicion_lon and condicion_lat
 
     def __str__(self):
-        alt_str = str(round(self.altitud, 1))
+        alt_str = str(round(self.altitud))
         return self.nombre + " | " + str(self.numero_catalogo) + " | " + self.tipo_orbita() + " | " + alt_str + " km"

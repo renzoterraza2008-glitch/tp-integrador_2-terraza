@@ -3,7 +3,7 @@ from satelite import Satelite
 from funciones_base import obtener_posicion
 
 def leer_catalogo(ruta):
-    archivo = open(ruta, "r", encoding="utf-8")
+    archivo = open(ruta, "r")
     datos = json.load(archivo)
     archivo.close()
     return datos
@@ -13,8 +13,8 @@ def crear_catalogo(registros):
     for reg in registros:
         try:
             lat, lon, alt = obtener_posicion(reg)
-            nombre = reg["OBJECT_NAME"]
-            cat = int(reg["NORAD_CAT_ID"])
+            nombre = reg("OBJECT_NAME", "")
+            cat = int(reg("NORAD_CAT_ID", 0))
             sat = Satelite(nombre, cat, lat, lon, alt)
             lista_satelites.append(sat)
         except:
