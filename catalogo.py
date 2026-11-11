@@ -11,14 +11,12 @@ def leer_catalogo(ruta):
 def crear_catalogo(registros):
     lista_satelites = []
     for reg in registros:
-        try:
-            lat, lon, alt = obtener_posicion(reg)
-            nombre = reg("OBJECT_NAME", "")
-            cat = int(reg("NORAD_CAT_ID", 0))
-            sat = Satelite(nombre, cat, lat, lon, alt)
-            lista_satelites.append(sat)
-        except:
-            continue
+        lat, lon, alt = obtener_posicion(reg)
+        nombre = reg["OBJECT_NAME"]
+        cat = int(reg["NORAD_CAT_ID"])
+        sat = Satelite(nombre, cat, lat, lon, alt)
+        lista_satelites.append(sat)
+        
     return lista_satelites
 
 def resumir_catalogo(sats):
