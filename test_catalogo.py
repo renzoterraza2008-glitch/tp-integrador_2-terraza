@@ -3,7 +3,6 @@ from catalogo import resumir_catalogo, obtener_satelites_en_zona
 
 class EvaluadorCatalogo:
     def probar_todo(self):
-        print("Iniciando pruebas de Catalogo...")
         self.probar_resumen()
         self.probar_zona()
         print("¡Todas las pruebas del catálogo pasaron con éxito!")

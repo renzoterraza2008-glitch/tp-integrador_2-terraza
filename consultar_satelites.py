@@ -16,7 +16,7 @@ def main():
                 print(tipo, "Cantidad:", datos["cantidad"], "| Min:", round(datos["min"], 1), "km | Max:", round(datos["max"], 1), "km | Prom:", round(datos["promedio"], 1), "km")
             else:
                 print(tipo, "Cantidad: 0")
-
+                
     elif accion == "zona" and len(sys.argv) == 7:
         lon1 = float(sys.argv[3])
         lat1 = float(sys.argv[4])
