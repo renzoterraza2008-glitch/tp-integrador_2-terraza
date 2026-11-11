@@ -1,8 +1,15 @@
 class Satelite:
     def __init__(self, nombre, numero_catalogo, latitud, longitud, altitud):
-        if not (type(nombre) == str and len(nombre.strip()) > 0 and type(numero_catalogo) == int and -90 <= latitud <= 90 and -180 <= longitud <= 180 and altitud >= 100):
-            raise ValueError("Datos invalidos")
-
+        if not isinstance(nombre, str) or len(nombre.strip()) == 0:
+            raise ValueError("nombre invalido")
+        if not isinstance(numero_catalogo, int):
+            raise ValueError("numero de catalogo inválido")
+        if not (-90 <= latitud <= 90):
+            raise ValueError("latitud fuera de rango")
+        if not (-180 <= longitud <= 180):
+            raise ValueError("longitud fuera de rango")
+        if altitud < 100:
+            raise ValueError("altitud inválida")
         self.nombre = nombre.strip()
         self.numero_catalogo = numero_catalogo
         self.latitud = float(latitud)
