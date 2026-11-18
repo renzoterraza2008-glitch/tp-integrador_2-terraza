@@ -25,7 +25,6 @@ class Satelite:
             return "GEO"
         else:
             return "HEO"
-
         
     def en_zona(self, lon_min, lat_min, lon_max, lat_max):
         condicion_lon = lon_min <= self.longitud <= lon_max

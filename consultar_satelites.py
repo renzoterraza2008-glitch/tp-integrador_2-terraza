@@ -3,8 +3,8 @@ from catalogo import leer_catalogo, crear_catalogo, resumir_catalogo, obtener_sa
 
 def main():
     if len(sys.argv) < 3:
-        print("Uso correcto: python consultar_satelites.py archivo.json resumen")
-        print("O bien: python consultar_satelites.py archivo.json zona lon_min lat_min lon_max lat_max")
+        print("Uso correcto: python consultar_satelites.py satelites.json resumen")
+        print("O bien: python consultar_satelites.py satelites.json zona lon_min lat_min lon_max lat_max")
         sys.exit(1)
 
     sats = crear_catalogo(leer_catalogo(sys.argv[1]))
@@ -16,7 +16,7 @@ def main():
                 print(tipo, "Cantidad:", datos["cantidad"], "| Min:", round(datos["min"], 1), "km | Max:", round(datos["max"], 1), "km | Prom:", round(datos["promedio"], 1), "km")
             else:
                 print(tipo, "Cantidad: 0")
-                
+
     elif accion == "zona" and len(sys.argv) == 7:
         lon1 = float(sys.argv[3])
         lat1 = float(sys.argv[4])

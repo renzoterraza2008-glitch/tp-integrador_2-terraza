@@ -8,7 +8,7 @@ class EvaluadorSatelite:
         print("todas las pruebas manuales pasaron con éxito")
 
     def probar_creacion_valida(self):
-        sat = Satelite("ISS (ZARYA)", 25544, -30.5, -60.2, 419.7)
+        sat = Satelite("ISS (ZARYA)", 25544, -30.5, -60.2, 90)
         assert sat.nombre == "ISS (ZARYA)"
         assert sat.tipo_orbita() == "LEO"
         print("prueba de creación válida pasada.")
